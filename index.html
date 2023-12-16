@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 </head>
 <body>
+
  <ons-page>
   <ons-toolbar>
     <div class="center">Curso de Inglés</div>
@@ -14,31 +15,24 @@
   <ons-list>
     <ons-list-header>Lecciones</ons-list-header>
     
-    <ons-list-item modifier="chevron" onclick="mostrarLeccion('Saludos')">Lección 1: Saludos</ons-list-item>
+    <ons-list-item modifier="chevron" onclick="cargarLeccion('lección1.html')">Lección 1: Saludos</ons-list-item>
+    <ons-list-item modifier="chevron" onclick="cargarLeccion('lección2.html')">Lección 2: Presentaciones</ons-list-item>
     <!-- Agrega más elementos de lista para otras lecciones -->
   </ons-list>
-  
-  <ons-card id="leccionDetalle" style="display: none;">
-    <div class="title">Detalles de la Lección</div>
-    <div class="content">
- <audio controls>
-  
-  <source src="https://cdn.innovativelanguage.com/englishclass101/learningcenter/audio/transcript_367/4.mp3" type="audio/mpeg">
-  Your browser does not support the audio tag.
-</audio> 
-      
-    </div>
-  </ons-card>
 </ons-page>
-<script>
-function mostrarLeccion(nombreLeccion) {
-  const leccionDetalle = document.getElementById('leccionDetalle');
-  // Aquí podrías mostrar los detalles de la lección correspondiente
-  // Por ejemplo, podrías cambiar el contenido del elemento 'leccionDetalle' con los recursos de esa lección
-  leccionDetalle.style.display = 'block';
-}
 
+<script>
+function cargarLeccion(url) {
+  // Carga la página de la lección seleccionada en el elemento <ons-page>
+  const content = document.querySelector('.content');
+  fetch(url)
+    .then(response => response.text())
+    .then(html => {
+      content.innerHTML = html;
+    });
+}
 </script>
+
 
 
 </body>

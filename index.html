@@ -6,6 +6,25 @@
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 </head>
 <body>
-  <ons-button onclick="alert('Hello World!')">Click Me</ons-button>
+ <ons-page>
+  <ons-toolbar>
+    <div class="center">Curso de Inglés</div>
+  </ons-toolbar>
+
+  <ons-list>
+    <ons-list-header>Lecciones</ons-list-header>
+    
+    <ons-list-item modifier="chevron" onclick="mostrarLeccion('Saludos')">Lección 1: Saludos</ons-list-item>
+    <!-- Agrega más elementos de lista para otras lecciones -->
+  </ons-list>
+  
+  <ons-card id="leccionDetalle" style="display: none;">
+    <div class="title">Detalles de la Lección</div>
+    <div class="content">
+      <!-- Aquí podrías mostrar detalles de la lección, como imágenes, videos, audios, texto, etc. -->
+    </div>
+  </ons-card>
+</ons-page>
+ 
 </body>
 </html>

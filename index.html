@@ -8,30 +8,29 @@
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 </head>
 <body>
-  <ons-navigator id="navigator">
-    <ons-page>
-      <ons-toolbar>
-        <div class="center">Curso de Inglés</div>
-      </ons-toolbar>
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Curso de Inglés</div>
+    </ons-toolbar>
 
-      <ons-list>
-        <ons-list-header>Lecciones</ons-list-header>
-        
-        <ons-list-item modifier="chevron" onclick="cargarLeccion('leccion1.html')">Lección 1:Los Saludos</ons-list-item>
-        <ons-list-item modifier="chevron" onclick="cargarLeccion('leccion2.html')">Lección 2: Presentaciones</ons-list-item>
-        <!-- Agrega más elementos de lista para otras lecciones -->
-      </ons-list>
-    </ons-page>
-  </ons-navigator>
+    <ons-list>
+      <ons-list-header>Lecciones</ons-list-header>
+      
+      <ons-list-item modifier="chevron" onclick="abrirLeccion('leccion1.html')">Lección 1: Saludos</ons-list-item>
+      <ons-list-item modifier="chevron" onclick="abrirLeccion('leccion2.html')">Lección 2: Presentaciones</ons-list-item>
+      <!-- Agrega más elementos de lista para otras lecciones -->
+    </ons-list>
+  </ons-page>
 
   <script>
-    function cargarLeccion(url) {
-      const navigator = document.getElementById('navigator').navigator;
-
-      // Navega a la página de la lección seleccionada
-      navigator.pushPage(url)
-        .then(() => console.log('Página cargada'))
-        .catch(err => alert.error('Error al cargar la página: ', err));
+    function abrirLeccion(url) {
+      // Abre una nueva ventana y carga el contenido de la lección seleccionada
+      const ventanaLeccion = window.open(url, '_blank');
+      if (ventanaLeccion) {
+        ventanaLeccion.focus();
+      } else {
+        alert('El bloqueador de ventanas emergentes está activado. Por favor, permite las ventanas emergentes para ver el contenido.');
+      }
     }
   </script>
 </body>

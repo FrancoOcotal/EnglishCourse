@@ -17,7 +17,7 @@
       <ons-list>
         <ons-list-header>Lecciones</ons-list-header>
         
-        <ons-list-item modifier="chevron" onclick="cargarLeccion('lección1.html')">Lección 1: Saludos</ons-list-item>
+        <ons-list-item modifier="chevron" onclick="cargarLeccion('lección1.html')">Lección 1:Los Saludos</ons-list-item>
         <ons-list-item modifier="chevron" onclick="cargarLeccion('lección2.html')">Lección 2: Presentaciones</ons-list-item>
         <!-- Agrega más elementos de lista para otras lecciones -->
       </ons-list>
@@ -31,7 +31,7 @@
       // Navega a la página de la lección seleccionada
       navigator.pushPage(url)
         .then(() => console.log('Página cargada'))
-        .catch(err => console.error('Error al cargar la página: ', err));
+        .catch(err => alert.error('Error al cargar la página: ', err));
     }
   </script>
 </body>

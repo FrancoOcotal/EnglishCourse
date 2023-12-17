@@ -1,39 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+  <meta charset="UTF-8">
+  <title>Curso de Inglés</title>
+  <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.min.css">
   <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
   <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
 </head>
 <body>
+  <ons-navigator id="navigator">
+    <ons-page>
+      <ons-toolbar>
+        <div class="center">Curso de Inglés</div>
+      </ons-toolbar>
 
- <ons-page>
-  <ons-toolbar>
-    <div class="center">Curso de Inglés</div>
-  </ons-toolbar>
+      <ons-list>
+        <ons-list-header>Lecciones</ons-list-header>
+        
+        <ons-list-item modifier="chevron" onclick="cargarLeccion('lección1.html')">Lección 1: Saludos</ons-list-item>
+        <ons-list-item modifier="chevron" onclick="cargarLeccion('lección2.html')">Lección 2: Presentaciones</ons-list-item>
+        <!-- Agrega más elementos de lista para otras lecciones -->
+      </ons-list>
+    </ons-page>
+  </ons-navigator>
 
-  <ons-list>
-    <ons-list-header>Lecciones</ons-list-header>
-    
-    <ons-list-item modifier="chevron" onclick="cargarLeccion('lección1.html')">Lección 1: Saludos</ons-list-item>
-    <ons-list-item modifier="chevron" onclick="cargarLeccion('lección2.html')">Lección 2: Presentaciones</ons-list-item>
-    <!-- Agrega más elementos de lista para otras lecciones -->
-  </ons-list>
-</ons-page>
+  <script>
+    function cargarLeccion(url) {
+      const navigator = document.getElementById('navigator').navigator;
 
-<script>
-function cargarLeccion(url) {
-  // Carga la página de la lección seleccionada en el elemento <ons-page>
-  const content = document.querySelector('.content');
-  fetch(url)
-    .then(response => response.text())
-    .then(html => {
-      content.innerHTML = html;
-    });
-}
-</script>
-
-
-
+      // Navega a la página de la lección seleccionada
+      navigator.pushPage(url)
+        .then(() => console.log('Página cargada'))
+        .catch(err => console.error('Error al cargar la página: ', err));
+    }
+  </script>
 </body>
 </html>
